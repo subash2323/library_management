@@ -288,5 +288,7 @@ def delete_user(id):
     return redirect("/users")
 
 
-# RUN
-app.run(debug=True)
+# Rimport os
+
+port = int(os.environ.get("PORT", 10000))
+app.run(host="0.0.0.0", port=port)
