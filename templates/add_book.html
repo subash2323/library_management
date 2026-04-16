@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3>Add Book</h3>
+
+<form method="POST" enctype="multipart/form-data">
+<input name="title" class="form-control mt-2" placeholder="Title">
+<input name="author" class="form-control mt-2" placeholder="Author">
+<input type="number" name="quantity" placeholder="Quantity" required>
+<input name="category" class="form-control mt-2" placeholder="Category">
+<input type="file" name="file" class="form-control mt-2">
+<button class="btn btn-success mt-3">Add</button>
+</form>
+
+{% endblock %}

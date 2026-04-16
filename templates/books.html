@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+
+<table class="table">
+<tr><th>Title</th><th>Author</th><th>Quantity</th><th>Action</th></tr>
+
+{% for b in books %}
+<tr>
+<td>{{b.title}}</td>
+<td>{{b.author}}</td>
+<td>{{ b.quantity }}</td>
+<td>
+
+{% if b.file %}
+<a href="/read/{{b.file}}" class="btn btn-primary btn-sm">Read</a>
+{% endif %}
+
+{% if b.id in borrowed_ids %}
+<a href="/return/{{b.id}}" class="btn btn-danger btn-sm">Return</a>
+{% else %}
+<a href="/borrow/{{b.id}}" class="btn btn-success btn-sm">Borrow</a>
+{% endif %}
+
+{% if session.role == "admin" %}
+<a href="/delete_book/{{b.id}}" class="btn btn-dark btn-sm">Delete</a>
+{% endif %}
+
+</td>
+</tr>
+{% endfor %}
+
+</table>
+
+{% endblock %}

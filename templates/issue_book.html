@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h4>Issue Book</h4>
+
+<form method="POST">
+<select name="user" class="form-control mt-2">
+{% for u in users %}
+<option value="{{u.id}}">{{u.username}}</option>
+{% endfor %}
+</select>
+
+<select name="book" class="form-control mt-2">
+{% for b in books %}
+<option value="{{b.id}}">{{b.title}}</option>
+{% endfor %}
+</select>
+
+<button class="btn btn-danger mt-3">Issue Book</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h4>My Books</h4>
+
+<table class="table">
+<tr>
+<th>Book</th>
+<th>Borrow</th>
+<th>Return</th>
+<th>Status</th>
+</tr>
+
+{% for b in data %}
+<tr>
+<td>{{b.title}}</td>
+<td>{{b.borrow_date}}</td>
+<td>{{b.return_date}}</td>
+<td>{{b.status}}</td>
+</tr>
+{% endfor %}
+</table>
+
+{% endblock %}

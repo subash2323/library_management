@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3>User Dashboard</h3>
+
+<div class="row mt-3">
+<div class="col-md-6">
+<div class="card bg-primary text-white p-3">
+<h5>Total Borrowed</h5>
+<h3>{{ data|length }}</h3>
+</div>
+</div>
+
+<div class="col-md-6">
+<div class="card bg-success text-white p-3">
+<h5>Returned</h5>
+<h3>
+{{ data | selectattr("status","equalto","returned") | list | length }}
+</h3>
+</div>
+</div>
+</div>
+
+<table class="table table-bordered mt-4">
+<tr>
+<th>Book</th>
+<th>Borrow Date</th>
+<th>Return Date</th>
+<th>Status</th>
+</tr>
+
+{% for b in data %}
+<tr>
+<td>{{b.title}}</td>
+<td>{{b.borrow_date}}</td>
+<td>{{b.return_date}}</td>
+
+<td>
+{% if b.status == "borrowed" %}
+<span class="badge bg-warning">Borrowed</span>
+{% else %}
+<span class="badge bg-success">Returned</span>
+{% endif %}
+</td>
+
+</tr>
+{% endfor %}
+
+</table>
+
+{% endblock %}

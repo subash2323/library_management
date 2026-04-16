@@ -1,0 +1,42 @@
+body{
+    display:flex;
+    background:#f4f6f9;
+    margin:0;
+}
+
+.sidebar{
+    width:250px;
+    height:100vh;
+    background:#2f3542;
+    color:white;
+    padding:20px;
+}
+
+.sidebar a{
+    display:block;
+    padding:10px;
+    color:white;
+    text-decoration:none;
+}
+
+.sidebar a:hover{
+    background:#57606f;
+}
+
+.main{
+    flex:1;
+    padding:20px;
+}
+
+.topbar{
+    background:white;
+    padding:10px;
+    margin-bottom:20px;
+    border-radius:8px;
+}
+
+.card-box{
+    padding:20px;
+    color:white;
+    border-radius:8px;
+}
